@@ -1,10 +1,20 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 import Reveal from "../components/Reveal";
 import SectionBackground from "../components/SectionBackground";
 
 function Contact() {
+
+  const [loading, setLoading] = useState(false);
+
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: "",
+});
+
   const form = useRef();
 
   const [loading, setLoading] = useState(false);
