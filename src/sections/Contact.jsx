@@ -6,41 +6,32 @@ import Reveal from "../components/Reveal";
 import SectionBackground from "../components/SectionBackground";
 
 function Contact() {
-
-  const [loading, setLoading] = useState(false);
-
-const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  message: "",
-});
-
   const form = useRef();
-
   const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
     setLoading(true);
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         "service_b02675d",
         "template_xex76hv",
         form.current,
         "3efhCDdXdZw2ehx1O"
-      )
-      .then(() => {
-        alert("Message sent successfully!");
-        form.current.reset();
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Failed to send message.");
-        setLoading(false);
-      });
+      );
+
+      toast.success("Message sent successfully! 🚀");
+
+      form.current.reset();
+    } catch (error) {
+      console.error(error);
+
+      toast.error("Failed to send message.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,7 +43,6 @@ const [formData, setFormData] = useState({
 
       <div className="site-container">
         {/* Heading */}
-
         <Reveal className="max-w-3xl">
           <p className="uppercase tracking-[0.3em] text-blue-400 font-semibold">
             CONTACT
@@ -77,7 +67,6 @@ const [formData, setFormData] = useState({
           className="mt-20 grid gap-8 lg:grid-cols-2"
         >
           {/* LEFT */}
-
           <div className="group relative rounded-3xl border border-white/10 bg-slate-900/60 p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 hover:border-blue-500/40 hover:shadow-[0_30px_80px_rgba(59,130,246,0.22)]">
             <div className="absolute right-6 top-6 h-20 w-20 rounded-full bg-blue-500/10 blur-3xl"></div>
 
@@ -122,7 +111,7 @@ const [formData, setFormData] = useState({
                 <a
                   href="https://github.com/dnnali20"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="mt-2 inline-block text-lg transition hover:text-blue-400"
                 >
                   github.com/dnnali20
@@ -135,9 +124,9 @@ const [formData, setFormData] = useState({
                 </p>
 
                 <a
-                  href="https://linkedin.com/in/dennis-ali-fadillah-35b761420"
+                  href="https://www.linkedin.com/in/dennis-ali-fadillah-35b761420/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="mt-2 inline-block text-lg transition hover:text-blue-400"
                 >
                   linkedin.com/in/dennis-ali-fadillah
@@ -147,7 +136,6 @@ const [formData, setFormData] = useState({
           </div>
 
           {/* RIGHT */}
-
           <div className="group relative rounded-3xl border border-white/10 bg-slate-900/60 p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 hover:border-blue-500/40 hover:shadow-[0_30px_80px_rgba(59,130,246,0.22)]">
             <div className="absolute right-6 top-6 h-20 w-20 rounded-full bg-blue-500/10 blur-3xl"></div>
 
@@ -161,7 +149,7 @@ const [formData, setFormData] = useState({
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
 
               <input
@@ -169,7 +157,7 @@ const [formData, setFormData] = useState({
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
 
               <textarea
@@ -177,7 +165,7 @@ const [formData, setFormData] = useState({
                 name="message"
                 placeholder="Your Message"
                 required
-                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full rounded-xl border border-white/10 bg-slate-950 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
 
               <button
