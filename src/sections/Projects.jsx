@@ -9,7 +9,7 @@ const projects = [
       "Modern e-commerce website with authentication, shopping cart, product management, and responsive UI.",
     image: "/image/projects/e-commerce.png",
     tech: ["React", "Tailwind", "Express", "MySQL"],
-    github: "https://github.com/USERNAME/ecommerce",
+   github: "https://github.com/dnnali20/project-e-commerce-class-x",
     demo: "#",
     featured: true,
   },
@@ -17,9 +17,9 @@ const projects = [
     title: "Pengaduan Masyarakat",
     description:
       "Community complaint reporting system with role-based authentication, dashboard, report management, and analytics.",
-    image: "/image/projects/web pengaduan masyarakat.png",
+    image: "/image/projects/pengaduan-masyarakat.png",
     tech: ["React", "Node.js", "Express", "MySQL"],
-    github: "https://github.com/USERNAME/pengaduan",
+    github: "https://github.com/dnnali20/projek-akhir-pengaduan-masyarakat",
     demo: "#",
   },
   {
@@ -28,8 +28,8 @@ const projects = [
       "Personal portfolio built with React, Tailwind CSS, and Framer Motion.",
     image: "/image/projects/portofolio.png",
     tech: ["React", "Tailwind", "Framer Motion"],
-    github: "https://github.com/USERNAME/portfolio",
-    demo: "#",
+    github: "https://github.com/dnnali20/dennis-portfolio",
+    demo: "https://dennis-portfolio-tawny.vercel.app/",
   },
 ];
 
@@ -135,12 +135,11 @@ Featured Project
             <div className="mt-10 flex gap-4">
 
   <a
-    href={project.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="rounded-full bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-blue-500"
-    className="flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-blue-500"
-  >
+  href={project.github}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-blue-500"
+>
     <>
   <FaGithub />
   GitHub
